@@ -241,13 +241,13 @@ public class B_Tree {
             while (idx < n && chaves[idx] < k) {
                 idx++;
             }
-            if (idx < n && chaves[idx] == k) { // Ensure idx is within bounds of array
+            if (idx < n && chaves[idx] == k) { 
                 return true;
             }
             if (folha) {
                 return false;
             }
-            return (idx < n) ? filhos[idx].buscarChave(k) : false; // Ensure idx is within bounds of array
+            return (idx < n) ? filhos[idx].buscarChave(k) : false;
         }
 
 
