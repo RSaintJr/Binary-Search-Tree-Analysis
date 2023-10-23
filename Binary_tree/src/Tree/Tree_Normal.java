@@ -93,7 +93,7 @@ public class Tree_Normal {
                     System.out.print("- ");
                 }
             }
-            System.out.println(); // nova linha para separar os niveis
+            System.out.println(); 
         }
     }
 
@@ -103,29 +103,20 @@ public class Tree_Normal {
 
     private Nodo removerItem(Nodo raiz, int chave) {
         if (raiz == null) {
-            // Nó não encontrado,faz nada
             return null;
         }
         if (chave < raiz.chave) {
-            // Chave a ser removida está à esquerda
             raiz.esq = removerItem(raiz.esq, chave);
         } else if (chave > raiz.chave) {
-            // Chave a ser removida esta à direita
             raiz.dir = removerItem(raiz.dir, chave);
         } else {
-            // Encontramos o nó a ser removido
             if (raiz.esq == null) {
-                // Caso em que o nó não possui filho a esquerda
                 return raiz.dir;
             } else if (raiz.dir == null) {
-                // Caso em que o nó não possui filha a direita
                 return raiz.esq;
             } else {
-                // Caso em que o nó possui ambos os filhos
-                // Nó sucessor será o menor da subárvore da direita
                 Nodo sucessor = encontrarSucessor(raiz.dir);
-                raiz.chave = sucessor.chave; // Replace the value of the node to be removed with the value of the
-                // successor
+                raiz.chave = sucessor.chave; 
                 raiz.dir = removerItem(raiz.dir, sucessor.chave);
             }
         }
